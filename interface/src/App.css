@@ -1,0 +1,103 @@
+.montserrat-underline, .napala {
+  font-family: "Montserrat Underline", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.parkinsans, .card {
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.notableRegular {
+  font-family: "Notable", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-color: #3f3f3f;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 3em;
+  gap: 1em;
+  padding: 10px;
+}
+
+.logo {
+  width: 50%;
+  min-width: min(100%, 400px);
+}
+
+.subContainer {
+  position: relative;
+  top: -1.5em;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #f8f8f8;
+  text-shadow: 1px .01em 1px #919191,
+               1px .02em 1px #818181,
+               1px .03em 1px #717171,
+               1px .04em 1px #616161,
+               1px .05em 1px #515151,
+               1px .06em 1px #414141,
+               1px .07em 1px #313131,
+               1px .08em 1px #212111,
+               1px .09em 1px #111111,
+               1px .10em 1px #010101,
+               1px .18em 6px rgba(16,16,16,0.4),
+               1px .22em 10px rgba(16,16,16,0.2),
+               1px .25em 35px rgba(16,16,16,0.2),
+               1px .30em 60px rgba(16,16,16,0.4);
+}
+
+.appHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(15px + 2vmin);
+  color: white;
+}
+
+.card {
+  background-color: whitesmoke;
+  min-width: 30vw;
+  flex: 0 1 max-content;
+  max-width: min(700px, 100%);
+  padding: 1em;
+}
+
+.napala {
+  font-weight: bold;
+}
+
+.playerControls {
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.material {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+}
+
+.material a {
+  color: currentColor;
+}
