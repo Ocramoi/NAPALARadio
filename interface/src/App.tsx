@@ -6,8 +6,9 @@ import './App.css';
 import { Button } from '@mui/material';
 import axios from 'axios';
 
-const songUrl = "http://192.168.15.9:8079/cgi-bin/song",
-      currentUrl = "http://192.168.15.9:8079/cgi-bin/curr",
+const baseUrl = "https://bring-establishment-upset-sd.trycloudflare.com/cgi-bin",
+      songUrl = `${baseUrl}/song`,
+      currentUrl = `${baseUrl}/curr`,
       errSong = "Não foi possível obter a música atual",
       noSong = "Nenhuma música :<";
 
