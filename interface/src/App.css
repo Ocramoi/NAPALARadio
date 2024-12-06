@@ -72,7 +72,7 @@ body {
 
 .card {
   background-color: whitesmoke;
-  min-width: 30vw;
+  min-width: min-content;
   flex: 0 1 max-content;
   max-width: min(700px, 100%);
   padding: 1em;
