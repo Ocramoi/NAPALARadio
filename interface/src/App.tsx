@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import logo from './LOGO.png';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
@@ -6,7 +6,7 @@ import './App.css';
 import { Button } from '@mui/material';
 import axios from 'axios';
 
-const baseUrl = "https://bring-establishment-upset-sd.trycloudflare.com/cgi-bin",
+const baseUrl = "https://info.napala.live/cgi-bin",
       songUrl = `${baseUrl}/song`,
       currentUrl = `${baseUrl}/curr`,
       errSong = "Não foi possível obter a música atual",
@@ -100,7 +100,7 @@ function App() {
 
         {
           audioPlaying && (
-            <audio src={`https://serve-cuba-ui-reporting.trycloudflare.com/?${Date.now()}`} preload="none" autoPlay={true}>
+            <audio src={`https://stream.napala.live/?${Date.now()}`} preload="none" autoPlay={true}>
               Não foi possível reproduzir áudio :&lt;
             </audio>
           )
