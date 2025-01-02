@@ -6,15 +6,23 @@ import './App.css';
 import { Button } from '@mui/material';
 import axios from 'axios';
 
+interface Movie {
+  name: string;
+  link: string;
+};
+
 const baseUrl = "https://info.napala.live/cgi-bin",
       songUrl = `${baseUrl}/song`,
+      movieUrl = `${baseUrl}/movie`,
       currentUrl = `${baseUrl}/curr`,
       errSong = "Não foi possível obter a música atual",
       noSong = "Nenhuma música :<";
 
 function App() {
-  const [ audioPlaying, setAudioPlaying ] = useState(false);
-  const [ currentSong, setCurrentSong ] = useState<string | null>(null);
+  const [ audioPlaying, setAudioPlaying ] = useState(false),
+        [ currentSong, setCurrentSong ] = useState<string | null>(null),
+        [ movieInfo, setMovieInfo ] = useState<Movie>(),
+        [ movieLoaded, setMovieLoaded ] = useState<boolean>(false);
 
   useEffect(() => {
     if (!currentSong?.trim()?.length)
@@ -25,9 +33,15 @@ function App() {
          .catch(() => setCurrentSong(errSong));
   }, [ currentSong ]);
 
-  axios.get(songUrl)
-       .then(res => setCurrentSong(res.data))
-       .catch(() => setCurrentSong(errSong));
+  useEffect(() => {
+    axios.get(songUrl)
+        .then(res => setCurrentSong(res.data))
+        .catch(() => setCurrentSong(errSong));
+
+    axios.get(movieUrl)
+        .then(res => setMovieInfo(res.data))
+        .catch(() => setMovieInfo({ name: 'Erro ao obter filme!', link: '' }));
+  }, [])
 
   return (
     <div className="App">
@@ -196,6 +210,31 @@ function App() {
             </Button>
           </a>
         </div>
+      </div>
+
+      <div className="card">
+        <h1 className="napala">
+          CINE NAPALA
+        </h1>
+
+        Assista filmes que nos inspiram!
+
+        <br />
+        <br />
+
+        <center hidden={!movieLoaded}>
+          <video src={ movieInfo?.link } height="360" controls={true} style={{ height: '360px', width: 'auto' }} onLoadedData={() => setMovieLoaded(true)} />
+          <br />
+          Filme atual:&nbsp;
+          <i>
+            { movieInfo?.name }
+          </i>
+        </center>
+
+        <center>
+          <br />
+          <i>Obrigado <a href="https://archive.org/">Archive.org</a>!</i>
+        </center>
       </div>
     </div>
   );
